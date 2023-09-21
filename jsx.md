@@ -2,15 +2,16 @@
 
 ### JSX 특징
 
-* JSX는 XML같은 ECMAScript(JavaScript)의 "문법확장"이다.
+* JSX는 XML같은 ECMAScript(JavaScript)의 **문법확장**이다.
 * JSX를 반드시 사용할 필요는 없다
 * JSX는 React를 만들면서 나왔지만, 다른 프레임워크에서도 사용 가능하다.
 * JavaScript로 변환하며, JavaScript와 1:1 매칭된다
+* JSX는 html이 아니다
 
 ### JSX 사용해보기
 
-* 온라인 변환기 : [https://babeljs.io/](https://babeljs.io/)
-  * 좌측에서 체크하거나 하단 add-plugin 에서 react-js 검색 후 추가하여 사용 가능
+* 온라인 변환기 : [https://babeljs.io](https://babeljs.io/)/repl
+  * 좌측에서 체크하거나 하단 add-plugin 에서 react-jsx 검색 후 @babel/plugin-transform-react-jsx를 추가하여 사용 가능
 
 #### Example 1
 
@@ -22,12 +23,11 @@
 
 ```
 // JavaScript
-
+React.createElement("p", null, "Hello, world!");
 
 ```
 
-* react가 아닌 다른 곳에 JSX를 사용하고 싶다면 상단에 /\* @jsx 다른곳 \*/ 주석 추가 할 경우
-  * React.createElement 가 다른곳.createElement 로 변환
+* react가 아닌 다른 곳에 JSX를 사용하고 싶다면 상단에 /\* @jsx Bla \*/ 주석 추가 할 경우 **React.createElement 대신** Bla 사용
 
 #### Example 2
 
@@ -41,17 +41,38 @@ function Greeting({ name }) {
 ```
 
 ```
+function Greeting({
+  name
+}) {
+  return /*#__PURE__*/React.createElement("p", null, " Hello, ", name, "!");
+}
+/*#__PURE__*/React.createElement(Greeting, {
+  name: "world",
+  age: "13",
+  age2: 13,
+  age2: {
+    "key": "value"
+  }
+});
 ```
+
+* javascript의 object는 key value 쌍의 모음
 
 #### Example 3
 
 ```jsx
-<Button type="submit">Send</Button> //함수
+<Button type="submit">Send</Button>; //함수
 <button type="submit" onClick= {() => console.log('Clicked')}>Send</button> //기본 태그
-변환후
 ```
 
 ```
+React.createElement(Button, {
+  type: "submit"
+}, "Send"); //함수
+React.createElement("button", {
+  type: "submit",
+  onClick: () => console.log('Clicked')
+}, "Send"); //기본 태그
 ```
 
 #### Example 4
@@ -108,10 +129,19 @@ document.querySelector('.css-1').textContent = 'Hello';
 document.querySelector('.css-1').innerHTML = '<ul><li>1</li></ul>';
 ```
 
-* VDOM 과 internals
+* VDOM : 다른 컴포넌트에 영향을 주지 않고 재조정하여 동기화하는 것
 
 ```
 import ReactDOM from 'react-dom/client';
 ```
 
-38:27
+* React Developer Tools : 크롬 확장팩, 컴포넌트 관계, strict mode
+
+```typescript
+소스코드 -> App.tsx 수정후 chrome 개발자 모드에서 확인 가능
+```
+
+* 선언적 API, 선언적 UI >> 찾아보기
+* 적절한 빠르기로 코드를 생성하고, 적절하게 유지보수를 가능하게 함 > 최적화
+* 변경사항 비교를 위해 key를 잡아줌
+* 변경사항을 비교하는 방법은 상황에 따라 효율성을 고민해야함
