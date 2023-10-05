@@ -1,11 +1,12 @@
 # 3⃣ Thinking in React
 
-### 주제
 
-1. React로 웹페이지 만드는 방법
-2. React로 생각하기 - 컴포넌트
 
-### 목표
+React로 웹페이지 만드는 방법
+
+React로 생각하기 - 컴포넌트
+
+Thinking in React : [https://react.dev/learn/thinking-in-react](https://react.dev/learn/thinking-in-react)
 
 1. 컴포넌트의 계층구조 (컴포넌트 트리)
 2. React의 정적인 버전 만들기
@@ -23,6 +24,7 @@
 
     GraphQL : Query(Read), Mutation(Command: Create, Update, Delete), Subscription(Event)
 * React는 선언형(HTML과 유사한 모양의 DSL을 사용)으로 UI를 구성, 선언형으로 구성할 경우 데이터 변화를 반영
+* JSON 개요 : [https://www.json.org/json-ko.html](https://www.json.org/json-ko.html)
 
 #### 컴포넌트 쪼개기
 
@@ -30,10 +32,17 @@
 2. 자를 수 있는 부분 함수 추출
 3. 애매한 경우 분리했다가, inline로 합치기도 함
 
-SRP란? 단일 책임 원칙으로, 모든 클래스는 하나의 책임만 가진다고함
+SRP -> 단일 책임 원칙으로, 모든 클래스는 하나의 책임만 가진다고함
+
+마크업,CSS, 자바스크립트를 컴포넌트로 결합하여 재사용
+
+[https://react.dev/learn/your-first-component](https://react.dev/learn/your-first-component)&#x20;
 
 #### Props 사용
 
 * 컴포넌트를 연결할 때 사용
+*   객체, 배열, 함수 등 모든 자바스크립트 값 전달 가능
+
+    [https://react.dev/learn/passing-props-to-a-component](https://react.dev/learn/passing-props-to-a-component)
 
 
