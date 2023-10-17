@@ -45,4 +45,25 @@ SRP -> 단일 책임 원칙으로, 모든 클래스는 하나의 책임만 가�
 
     [https://react.dev/learn/passing-props-to-a-component](https://react.dev/learn/passing-props-to-a-component)
 
+Thinking in React : [https://react.dev/learn/thinking-in-react](https://react.dev/learn/thinking-in-react)
+
+3. 작지만 완벽한, UI 상태의 표현 찾기
+4. 위 내용을 어디에 둘지 결정하기
+5. inver data flow 넣기
+
+### React의 State
+
+* 변경을 다루기 위한 요소
+* Re-rendering : 컴포넌트 상태가 바뀌면 하위 컴포넌트 다시 렌더링
+* DRY : 반복은 뺄 것
+* SSOT
+
+#### React State 조건
+
+* 변경되지 않는 것 제외
+* props로 다루는 것은 제외함
+*  계산 가능한 것 제외
+
+
+
 
